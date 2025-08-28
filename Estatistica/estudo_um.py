@@ -11,7 +11,6 @@ def calcular_classes(numero_observacoes):
         return resultado
 
 def arredonda_classes(resultado):
-    print("Agora vamos arredondar a classe.")
     classe_arredondada = round(resultado)
     print(f"Esse é o seu número de classes: {classe_arredondada}")
     return classe_arredondada
@@ -28,7 +27,7 @@ def calcular_amplitude_distribuicao(lista_numeros_observacoes):
 
 def calcular_amplitude_classes(R, numeros_classes):
     resultado = R / numeros_classes
-    print(f"Essa é a sua amplitude de classes: {resultado}")  
+    print(f"Essa é a sua amplitude de classes: {resultado}\n")  
     return resultado   
 
 def definir_classes(limite_inferior, numeros_classes, H):
@@ -45,13 +44,32 @@ def definir_classes(limite_inferior, numeros_classes, H):
     
     return classes
 
+def contagem_observacoes(lista_numeros_observacoes, classes):
+    frequencia = {}
+
+    for li, ls in classes:
+        count = sum(1 for x in lista_numeros_observacoes if li <= x <= ls)
+        frequencia[(li, ls)] = count
+
+    return frequencia
+
 numeros_observacoes = len(lista_numeros_observacoes)
+print("")
+print("Informações iniciais:")
 numeros_classes = calcular_classes(numeros_observacoes)
 R = calcular_amplitude_distribuicao(lista_numeros_observacoes)
 H = calcular_amplitude_classes(R, numeros_classes)
 
 limite_inferior = min(lista_numeros_observacoes)
 classes = definir_classes(limite_inferior, numeros_classes, H)
+frequencia = contagem_observacoes(lista_numeros_observacoes, classes)
 
+print("Classes definidas:")
 for idx, (li, ls) in enumerate(classes, start=1):
     print(f"Classe: {idx}: {li} - {ls}")
+
+print("")
+
+print("Contagem:")
+for (li, ls), count in frequencia.items():
+    print(f"Classe: {li} - {ls}: {count}")
