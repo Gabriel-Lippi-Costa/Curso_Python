@@ -31,7 +31,27 @@ def calcular_amplitude_classes(R, numeros_classes):
     print(f"Essa é a sua amplitude de classes: {resultado}")  
     return resultado   
 
+def definir_classes(limite_inferior, numeros_classes, H):
+    classes = []
+
+    for i in range(numeros_classes):
+        if i == 0:
+            li = limite_inferior
+        else:
+            li = classes[i-1][1] + 0.1
+
+        ls = li + H
+        classes.append((round(li,1), round(ls,1)))
+    
+    return classes
+
 numeros_observacoes = len(lista_numeros_observacoes)
 numeros_classes = calcular_classes(numeros_observacoes)
 R = calcular_amplitude_distribuicao(lista_numeros_observacoes)
 H = calcular_amplitude_classes(R, numeros_classes)
+
+limite_inferior = min(lista_numeros_observacoes)
+classes = definir_classes(limite_inferior, numeros_classes, H)
+
+for idx, (li, ls) in enumerate(classes, start=1):
+    print(f"Classe: {idx}: {li} - {ls}")
