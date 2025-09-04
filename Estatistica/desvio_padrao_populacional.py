@@ -9,7 +9,7 @@ def calcular_media_conjunto_valores(conjunto_valores):
     media_conjunto_valores = statistics.mean(conjunto_valores)
     return media_conjunto_valores
 
-def calcular_variancia_populacional(conjunto_valores, media_conjunto_valores):
+def calcular_desvio_padrao_populacional(conjunto_valores, media_conjunto_valores):
     soma_desvio = 0
     soma_desvio_quadrado = 0
 
@@ -25,7 +25,7 @@ def calcular_variancia_populacional(conjunto_valores, media_conjunto_valores):
 
 resultado_media_conjunto = calcular_media_conjunto_valores(conjunto_valores)
 
-resultado_desvio, resultado_desvio_quadrado, lista_desvios, lista_desvios_quadrados = calcular_variancia_populacional(conjunto_valores, resultado_media_conjunto)
+resultado_desvio, resultado_desvio_quadrado, lista_desvios, lista_desvios_quadrados = calcular_desvio_padrao_populacional(conjunto_valores, resultado_media_conjunto)
 
 print(f"Essa é a sua média do conjunto: {resultado_media_conjunto}\n")
 print(f"Essa é a sua lista de desvios: {lista_desvios}")
