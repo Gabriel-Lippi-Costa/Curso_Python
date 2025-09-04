@@ -1,4 +1,5 @@
 import statistics
+import math
 
 conjunto_valores = [41, 38, 39, 45, 47, 41, 44, 41, 37, 42]
 lista_desvios = []
@@ -31,3 +32,4 @@ print(f"Essa é a sua lista de desvios: {lista_desvios}")
 print(f"Esse é o seu total de desvios: {resultado_desvio}\n")
 print(f"Esse é o seu total do desvios ao quadrado: {resultado_desvio_quadrado}")
 print(f"Essa é a sua lista de desvios ao quadrado: {lista_desvios_quadrados}")
+print(f"Essa é a sua variância populacional: {resultado_desvio_quadrado / len(conjunto_valores)}")
