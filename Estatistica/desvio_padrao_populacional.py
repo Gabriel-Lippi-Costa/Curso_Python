@@ -1,7 +1,7 @@
 import statistics
 import math
 
-conjunto_valores = [41, 38, 39, 45, 47, 41, 44, 41, 37, 42]
+conjunto_valores = [4, 7, 6, 7, 9, 5, 8, 10, 9, 8, 7, 10]
 lista_desvios = []
 lista_desvios_quadrados = []
 
